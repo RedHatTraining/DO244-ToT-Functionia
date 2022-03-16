@@ -1,0 +1,17 @@
+apiVersion: messaging.knative.dev/v1beta1
+kind: KafkaChannel
+metadata:
+  annotations:
+    messaging.knative.dev/subscribable: v1
+  name: kafka-channel
+  creationTimestamp: null
+  finalizers:
+    - kafkachannels.messaging.knative.dev
+  labels:
+    app: kafka-channel
+    app.kubernetes.io/component: kafka-channel
+    app.kubernetes.io/instance: kafka-channel
+    app.kubernetes.io/name: kafka-channel
+spec:
+  numPartitions: 50
+  replicationFactor: 1

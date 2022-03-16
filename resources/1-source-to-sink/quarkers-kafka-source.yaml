@@ -1,0 +1,21 @@
+apiVersion: sources.knative.dev/v1beta1
+kind: KafkaSource
+metadata:
+  name: quarkers-kafka-source
+  namespace: functionia
+  labels:
+    app: quarkers-kafka-source
+    app.kubernetes.io/instance: quarkers-kafka-source
+    app.kubernetes.io/component: quarkers-kafka-source
+    app.kubernetes.io/name: quarkers-kafka-source
+spec:
+  bootstrapServers:
+    - 'my-cluster-kafka-bootstrap.functionia.svc.cluster.local:9092'
+  topics:
+    - bitmines
+  consumerGroup: miner-clans
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: quarkers-mining-service

@@ -1,0 +1,14 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: noders-trigger
+spec:
+  broker: kafka-broker
+  filter:
+    attributes:
+      type: noders 
+  subscriber:
+    ref:
+     apiVersion: serving.knative.dev/v1
+     kind: Service
+     name: noders-mining-service

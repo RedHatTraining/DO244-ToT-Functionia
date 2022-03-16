@@ -1,0 +1,14 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: quarkers-trigger
+spec:
+  broker: kafka-broker
+  filter:
+    attributes:
+      type: quarkers 
+  subscriber:
+    ref:
+     apiVersion: serving.knative.dev/v1
+     kind: Service
+     name: quarkers-mining-service

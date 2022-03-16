@@ -1,0 +1,21 @@
+version: 0.19.0
+name: noders-mining-service
+namespace: ""
+runtime: node
+registry: ""
+image: quay.io/systemcraftsman/noders-mining-service:latest
+imageDigest: sha256:d6cb446626907662ba0d62c6badd2c6891ce9c6f5c70619e190f711e4674edc5
+builder: quay.io/boson/faas-nodejs-builder
+builders:
+  default: quay.io/boson/faas-nodejs-builder
+buildpacks: []
+volumes: []
+buildEnvs: []
+envs: []
+annotations: {}
+options: {}
+labels: []
+healthEndpoints:
+  liveness: /health/liveness
+  readiness: /health/readiness
+created: 2022-03-09T16:36:18.287154+03:00

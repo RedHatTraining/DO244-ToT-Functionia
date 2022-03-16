@@ -1,0 +1,23 @@
+version: 0.19.0
+name: quarkers-mining-service
+namespace: ""
+runtime: quarkus
+registry: ""
+image: quay.io/systemcraftsman/quarkers-mining-service:latest
+imageDigest: sha256:8359834dd9b4c519abddb3236c17c41e9054009deb573b84e243465a0ecc1418
+builder: quay.io/boson/faas-jvm-builder:v0.8.4
+builders:
+  default: quay.io/boson/faas-jvm-builder:v0.8.4
+  jvm: quay.io/boson/faas-jvm-builder:v0.8.4
+  native: quay.io/boson/faas-quarkus-native-builder:v0.8.4
+buildpacks: []
+volumes: []
+buildEnvs: []
+envs: []
+annotations: {}
+options: {}
+labels: []
+healthEndpoints:
+  liveness: /health/liveness
+  readiness: /health/readiness
+created: 2022-03-09T16:35:21.812372+03:00

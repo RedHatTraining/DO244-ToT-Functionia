@@ -71,8 +71,7 @@ Do the editings in the function.
 Build and deploy function.
 
 ```shell
-cd noders-mining-service
-kn func deploy --build
+cd noders-mining-service && kn func deploy --build
 ```
 
 Update the function service.

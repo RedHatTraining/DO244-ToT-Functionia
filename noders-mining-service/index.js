@@ -19,7 +19,11 @@ const { CloudEvent, HTTP } = require('cloudevents');
  */
 function handle(context, event) {
 
-  event.data.status = "processed";
+  //if(event.data.type == "Vibranium"){
+  //  event.data.status = "send_to_wakanda";
+ // }else{
+    event.data.status = "processed";
+  //}
 
   console.log(JSON.stringify(event, null, 2));
 };

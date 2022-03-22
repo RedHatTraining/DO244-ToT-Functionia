@@ -4,23 +4,17 @@
 
 * Quay.io account
 * Quay.io repository and a robot account created in it.
-* Deploy bitmine-courier-v1
-
-## Instructions
-
-### Scene one:
-
-Deploy a Strimzi cluster
-
-```shell
-kfk clusters --create ...TODO
-```
-
-Deploy bitmine-courier-v2.
+* A Strimzi cluster
+* Serverless Operator and Serving, Eventing, KnativeKafka enabled.
+* Bitmine courier deployed:
 
 ```shell
 cd bitmine-courier && ./mvnw clean package -Dquarkus.kubernetes.deploy=true
 ```
+
+## Instructions
+
+### Scene one:
 
 Create quarkers miner clan function.
 
@@ -144,3 +138,24 @@ oc set env dc/bitmine-courier TOPIC=knative-broker-functionia-kafka-broker
 ```shell
 oc rollout latest dc/bitmine-courier 
 ```
+
+
+### Scene four:
+
+```shell
+kn service update noders-mining-service --tag=noders-mining-service-00002=noders
+```
+
+```shell
+kn func deploy --build
+```
+
+```shell
+kn service update noders-mining-service  --tag=noders-mining-service-00003=wakanda
+```
+
+```shell
+kn service update noders-mining-service  --traffic noders=80,wakanda=20
+```
+
+

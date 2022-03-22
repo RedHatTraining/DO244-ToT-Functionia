@@ -1,4 +1,6 @@
-# serverless-functionia-demo
+# Functionia
+
+![Funtionia-8](https://user-images.githubusercontent.com/10568159/159382570-fce98c6c-eb47-43d2-a4b4-9fc7d2f49c7f.jpg)
 
 ## Prerequisites
 

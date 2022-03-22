@@ -6,6 +6,7 @@
 
 * Quay.io account
 * Quay.io repository and a robot account created in it.
+* `stern` tool installed.
 * A Strimzi cluster
 * Serverless Operator and Serving, Eventing, KnativeKafka enabled.
 * Bitmine courier deployed:

@@ -19,6 +19,12 @@ cd bitmine-courier && ./mvnw clean package -Dquarkus.kubernetes.deploy=true
 
 ### Scene one:
 
+Create a project namespace.
+
+```shell
+oc new-project functionia
+```
+
 Create quarkers miner clan function.
 
 ```shell

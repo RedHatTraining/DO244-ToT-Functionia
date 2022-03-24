@@ -19,6 +19,8 @@ cd bitmine-courier && ./mvnw clean package -Dquarkus.kubernetes.deploy=true
 
 ### Scene one:
 
+![Screen Shot 2022-03-24 at 15 53 36](https://user-images.githubusercontent.com/10568159/159920605-07514b71-aa35-415e-860d-0aea76309183.png)
+
 Create a project namespace.
 
 ```shell
@@ -59,6 +61,8 @@ stern -n functionia -c user-container quarkers-mining-service
 ```
 
 ### Scene two:
+
+![Screen Shot 2022-03-24 at 15 53 47](https://user-images.githubusercontent.com/10568159/159920643-110ad8f4-a75b-4749-be47-f1e0afda62f1.png)
 
 Delete quarkers-kafka-source.
 
@@ -116,6 +120,8 @@ stern -n functionia -c user-container noders-mining-service
 
 ### Scene three:
 
+![Screen Shot 2022-03-24 at 15 53 56](https://user-images.githubusercontent.com/10568159/159920699-e114137b-404b-40bb-a5bf-069cbf1da73c.png)
+
 Delete the Kafka channel.
 
 ```shell
@@ -151,17 +157,27 @@ oc rollout latest dc/bitmine-courier
 
 ### Scene four:
 
+![Screen Shot 2022-03-24 at 15 53 10](https://user-images.githubusercontent.com/10568159/159920744-51a1cf1d-c0aa-43f7-bcbf-7c1a443338c8.png)
+
+Tag Noders service as `noders`.
+
 ```shell
 kn service update noders-mining-service --tag=noders-mining-service-00002=noders
 ```
+
+Edit the NodeJS function and build/deploy it.
 
 ```shell
 kn func deploy --build
 ```
 
+Tag the new version as `wakanda`.
+
 ```shell
 kn service update noders-mining-service  --tag=noders-mining-service-00003=wakanda
 ```
+
+Split the traffic as requested.
 
 ```shell
 kn service update noders-mining-service  --traffic noders=80,wakanda=20

@@ -27,6 +27,14 @@ Create a project namespace.
 oc new-project functionia
 ```
 
+Create a AMQ Streams / Strimzi cluster inside (Please first enable the AMQ Streams Operator)
+
+You can use [Strimzi CLI](https://github.com/systemcraftsman/strimzi-kafka-cli) to create one easily (or you can use the operator resources to create one).
+
+```shell
+kfk clusters --create --cluster my-cluster -n functionia
+```
+
 Create quarkers miner clan function.
 
 ```shell

@@ -35,7 +35,7 @@ You can use [Strimzi CLI](https://github.com/systemcraftsman/strimzi-kafka-cli) 
 kfk clusters --create --cluster my-cluster -n functionia
 ```
 
-Create quarkers miner clan function.
+Create Quarkers miner clan function.
 
 ```shell
 kn func create -l quarkus -t cloudevents quarkers-mining-service
@@ -77,6 +77,7 @@ Delete quarkers-kafka-source.
 ```shell
 kn source kafka delete quarkers-kafka-source
 ```
+Create Noders miner clan function.
 
 ```shell
 kn func create -l node -t cloudevents noders-mining-service

@@ -154,6 +154,16 @@ oc set env dc/bitmine-courier TOPIC=knative-broker-functionia-kafka-broker
 oc rollout latest dc/bitmine-courier 
 ```
 
+Checkout the pod count and logs.
+
+```shell
+stern -n functionia -c user-container quarkers-mining-service
+```
+
+```shell
+stern -n functionia -c user-container noders-mining-service
+```
+
 
 ### Scene four:
 
@@ -181,6 +191,22 @@ Split the traffic as requested.
 
 ```shell
 kn service update noders-mining-service  --traffic noders=80,wakanda=20
+```
+
+Checkout the traffic status.
+
+```shell
+kn revision list
+```
+
+Checkout the distribution and logs.
+
+```shell
+stern -n functionia -c user-container quarkers-mining-service
+```
+
+```shell
+stern -n functionia -c user-container noders-mining-service
 ```
 
 
